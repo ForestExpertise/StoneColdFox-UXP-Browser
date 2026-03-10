@@ -13,7 +13,8 @@ To build, you will need the following:
 2. Build tools and runtime dependencies - GCC10 and Libffi are both, darwin xtools and ld64-97 +tigerrpath are build only. Other common tools may be pulled in as well.
 It is recommended to get the build tools from @barracuda156's PowerPC ports. You will need to install the base from source, ideally against external curl, but that is outside the scope here.
 3. You need to download the source code from here.
-4. If building for G4, you can cd into the folder of the source code, then ./mach run and hopefully in a day or so it will finish successfully.
+4. You need https://github.com/danupsher/tiger-ppc-builds/blob/main/ld64-pipeline/tiger-compat.h The default configuration assumes it is located in /extraheader/include/tiger-compat.h  It is assumed that folder is part of your top directory.
+5. If building for G4, you can cd into the folder of the source code, then ./mach run and hopefully in a day or so it will finish successfully.
 If building for another platform you will need to change the mozconfig. You might also need to make sure your dependencies were built for the platform you are compiling for.
 Cross-compiling is outside the scope of StoneColdFox - that is our main difference from MachFox.
 6. To run, ./mach run
