@@ -1,0 +1,46 @@
+ac_add_options --target=powerpc-apple-darwin8
+ac_add_options --with-macos-sdk=$CROSS_SDK
+ac_add_options --enable-macos-target=10.4
+
+export CC="/opt/local/bin/gcc-mp-10"
+export CXX="/opt/local/bin/g++-mp-10"
+export STRIP=/opt/local/bin/strip7
+
+# SDK/prefix flags — G3 compatible (runs on any PPC Mac)
+# Note: -isysroot is handled by the ld64 wrapper internally
+export CFLAGS="-mcpu=G4 -D_DARWIN_C_SOURCE -DU_HAVE_TIMEZONE=0 -include /extraheader/include/tiger-compat.h"
+export CXXFLAGS="-mcpu=G4 -D_DARWIN_C_SOURCE -DU_HAVE_TIMEZONE=0 -fpermissive -include /extraheader/include/tiger-compat.h"
+
+# Application
+ac_add_options --enable-application=basilisk
+
+# Disable features that won't work on Tiger
+ac_add_options --disable-av1
+ac_add_options --disable-crashreporter
+ac_add_options --disable-debug
+ac_add_options --enable-optimize="-O2 -mcpu=G4"
+ac_add_options --disable-sandbox
+ac_add_options --disable-apple-media
+ac_add_options --host=powerpc-apple-darwin
+ac_add_options --target=powerpc-apple-darwin
+ac_add_options --enable-macos-target=10.4
+ac_add_options --enable-application=basilisk
+ac_add_options --with-macos-sdk=/Developer/SDKs/MacOSX10.4u.sdk
+ac_add_options --disable-strip
+ac_add_options --disable-jemalloc
+ac_add_options --enable-devtools
+ac_add_options --disable-webrtc
+ac_add_options --disable-gamepad
+ac_add_options --disable-tests
+ac_add_options --disable-necko-wifi
+ac_add_options --disable-updater
+ac_add_options --disable-apple-media
+ac_add_options --disable-accessibility
+ac_add_options --disable-webspeech
+
+# Static build
+ac_add_options --enable-default-toolkit=cairo-cocoa
+ac_add_options --disable-shared-js
+
+# Unofficial branding
+ac_add_options --with-branding=basilisk/branding/unofficial
